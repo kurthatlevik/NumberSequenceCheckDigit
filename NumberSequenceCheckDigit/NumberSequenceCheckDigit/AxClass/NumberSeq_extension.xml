@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>NumberSeq_extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[ExtensionOf(classStr(NumberSeq))]
+final class NumberSeq_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>num</Name>
+				<Source><![CDATA[
+    public Num num()
+    {
+        Num number;
+        number = next Num();
+        
+        if (numTableNum.AddCheckDigit && 
+            !numTableNum.Continuous &&
+            !numTableNum.Manual &&
+            numTableNum.AllowChangeUp)
+        {
+            number = number + int2str(modulo10(number));
+        }
+        return number;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
